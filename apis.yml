@@ -1,19 +1,56 @@
 aid: oneshot
 name: OneShot
-description: OneShot is a company surfaced as a portfolio company of seedcamp and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  OneShot (oneshot.ai) is an autonomous outbound sales prospecting platform that
+  uses generative AI, machine learning, and reinforcement learning to automate
+  the manual work of B2B prospecting. It sources ideal-customer-profile (ICP)
+  leads from 35+ data providers, manages email and domain health, generates
+  hyper-personalized messaging for email and LinkedIn, and can run fully
+  autonomous 24/7 outreach that books qualified meetings. The product ships as a
+  Chrome extension and a web application, and integrates natively with HubSpot,
+  Salesforce, Apollo, Salesloft, and Outreach. Founded in London by Gautam Rishi
+  (CEO) and Venki Pola (CTO), OneShot is backed by 42Cap, Seedcamp, and Addvia
+  Ventures. This profile was surfaced as a Seedcamp portfolio company and
+  enriched from OneShot's public surface; it does not expose a public developer
+  API, OpenAPI specification, or developer portal.
 url: https://raw.githubusercontent.com/api-evangelist/oneshot/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - seedcamp
+- 42cap
+- addvia-ventures
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/64c2dbb9c4026648656ec081/68643037866f61678f86bb47_oneshot_meta_preview_atlas.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Sales
+- Sales Automation
+- Outbound
+- Prospecting
+- Lead Generation
+- Artificial Intelligence
+- Go-To-Market
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,4 +59,20 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://oneshot.ai
+  url: https://www.oneshot.ai
+- type: Documentation
+  url: https://www.oneshot.ai/getting-started-with-oneshot
+- type: GettingStarted
+  url: https://www.oneshot.ai/getting-started-with-oneshot
+- type: Blog
+  url: https://www.oneshot.ai/blog
+- type: Pricing
+  url: https://www.oneshot.ai/pricing
+- type: SignUp
+  url: https://app.oneshot.ai
+- type: TermsOfService
+  url: https://www.oneshot.ai/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.oneshot.ai/privacy-policy
+- type: DomainSecurity
+  url: security/oneshot-domain-security.yml
