@@ -10,9 +10,16 @@ description: >-
   Chrome extension and a web application, and integrates natively with HubSpot,
   Salesforce, Apollo, Salesloft, and Outreach. Founded in London by Gautam Rishi
   (CEO) and Venki Pola (CTO), OneShot is backed by 42Cap, Seedcamp, and Addvia
-  Ventures. This profile was surfaced as a Seedcamp portfolio company and
-  enriched from OneShot's public surface; it does not expose a public developer
-  API, OpenAPI specification, or developer portal.
+  Ventures. Commercially it publishes three monthly tiers ($49/$99, $399 and
+  $1,995), all sold through a "Book a Demo" motion with no self-serve checkout,
+  and it operates a Vanta-hosted trust center at security.oneshot.ai alongside
+  published GDPR and data-processing terms. This profile was surfaced as a
+  Seedcamp portfolio company and enriched from OneShot's public surface.
+  OneShot exposes NO public developer API: full contract discovery across
+  www.oneshot.ai, the apex, app.oneshot.ai and every candidate api/docs/mcp
+  subdomain found no OpenAPI, AsyncAPI, GraphQL SDL, MCP server or A2A agent
+  card, and no developer portal or API reference exists. Its only first-party
+  distributed package is an end-user Chrome extension.
 url: https://raw.githubusercontent.com/api-evangelist/oneshot/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -23,20 +30,27 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 accessModel:
-  pricing: unknown
-  onboarding: unknown
+  pricing: paid
+  onboarding: approval
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
-  method: derived
+  label: Paid · Requires approval
+  confidence: high
+  source:
+  - plans
+  - https://www.oneshot.ai/pricing
+  generated: '2026-08-13'
+  method: searched
+  note: >-
+    Corrected from the derived value. derive-access-model.py inferred `self-serve` from the
+    presence of an authentication artifact, but every one of the three published tiers —
+    including the $49 entry tier — carries a "Book a Demo" call to action. There is no
+    self-serve checkout and no free tier, so onboarding is sales-gated approval.
 image: https://cdn.prod.website-files.com/64c2dbb9c4026648656ec081/68643037866f61678f86bb47_oneshot_meta_preview_atlas.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-13'
 tags:
 - Company
 - Sales
@@ -47,10 +61,30 @@ tags:
 - Artificial Intelligence
 - Go-To-Market
 x-enrichment:
-  date: '2026-07-20'
-  status: minimal
-  artifacts_added: 1
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 10
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    OneShot ships only an end-user web app and Chrome extension; its own site has no
+    developer, API or docs page (all 404, and none of the 180 URLs in its sitemap is a
+    reference page), api.oneshot.ai has no public DNS record at all, and app.oneshot.ai
+    answers 200 with the same SPA shell for every path including /openapi.json.
+  evidence:
+  - url: https://www.oneshot.ai/api
+    status: 404
+  - url: https://www.oneshot.ai/developers
+    status: 404
+  - url: https://www.oneshot.ai/llms.txt
+    status: 404
+  - url: https://www.oneshot.ai/.well-known/agent-card.json
+    status: 404
+  - url: https://api.oneshot.ai/
+    status: 0
+  checked: '2026-08-13'
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -76,3 +110,23 @@ common:
   url: https://www.oneshot.ai/privacy-policy
 - type: DomainSecurity
   url: security/oneshot-domain-security.yml
+- type: TrustCenter
+  url: security/oneshot-trust-center.yml
+- type: Compliance
+  url: https://security.oneshot.ai
+- type: VulnerabilityDisclosure
+  url: security/oneshot-vulnerability-disclosure.yml
+- type: Conformance
+  url: conformance/oneshot-conformance.yml
+- type: Packages
+  url: packages/oneshot-packages.yml
+- type: Plans
+  url: plans/oneshot-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/oneshot-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/oneshot-lifecycle.yml
+- type: LLMsTxt
+  url: llms/oneshot-llms.txt
+- type: AcceptableUsePolicy
+  url: https://www.oneshot.ai/aup
