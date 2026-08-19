@@ -1,0 +1,69 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://www.oneshot.ai/handlingdata, https://www.oneshot.ai/data-processing,
+  https://security.oneshot.ai
+note: >-
+  Derived from OneShot's published policy pages, not from a machine-readable contract —
+  OneShot publishes no OpenAPI, AsyncAPI, GraphQL SDL or JSON Schema, so none of the
+  spec-derived standards (RFC 9457, JSON:API, OData, SCIM, FHIR, FAPI) can be assessed
+  and are recorded as unknown rather than false.
+standards:
+- id: gdpr
+  conforms: true
+  evidence: >-
+    "OneShot is committed to ensuring ongoing compliance with the General Data Protection
+    Regulation (GDPR). OneShot does not log any customer sensitive data or personal
+    information into OneShot systems and fully complies with GDPR requirements."
+  source: https://www.oneshot.ai/handlingdata
+- id: gdpr-data-processing-terms
+  conforms: true
+  evidence: >-
+    A published Data Processing Terms document defining Controller/Processor roles,
+    Appropriate Safeguards, International Recipients and Data Subject Requests under
+    Regulation (EU) 2016/679.
+  source: https://www.oneshot.ai/data-processing
+- id: data-residency
+  conforms: true
+  evidence: >-
+    "these instances can be chosen based on the customers geographic requirements i.e.
+    US, Europe, Asia to comply with data sovereignty requirements."
+  source: https://www.oneshot.ai/handlingdata
+- id: oauth2
+  conforms: true
+  scope: consumer
+  evidence: >-
+    OneShot acts as an OAuth 2.0 CLIENT against Salesforce, Outreach, Gmail and Outlook —
+    "OneShot adheres to industry standard security practices defined by Salesforce's
+    official OAuth process". It does not publish an OAuth server of its own; there is no
+    /.well-known/oauth-authorization-server on any OneShot host.
+  source: https://www.oneshot.ai/handlingdata
+- id: tls-https-everywhere
+  conforms: true
+  evidence: >-
+    "All network traffic runs over SSL/HTTPS"; probed TLSv1.3 with HSTS max-age 31536000
+    on oneshot.ai.
+  source: https://www.oneshot.ai/handlingdata
+- id: soc2
+  conforms: unknown
+  evidence: >-
+    A Vanta Trust Center is published at https://security.oneshot.ai but its content is
+    client-rendered behind signed GraphQL operations, so no framework or certification
+    name is publicly readable. Neither asserted nor denied.
+- id: iso-27001
+  conforms: unknown
+- id: hipaa
+  conforms: unknown
+- id: pci-dss
+  conforms: unknown
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: No published API contract to assess.
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI or Swagger document found on any OneShot host after full STEP 0b contract
+    discovery across www, apex, app, and every candidate api/docs subdomain.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming or webhook surface is published.

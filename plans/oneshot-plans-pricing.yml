@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.oneshot.ai/pricing
+currency: USD
+billing_period: month
+plan_count: 3
+self_serve: false
+note: >-
+  Every tier's call to action is "Book a Demo" — there is no self-serve checkout and no
+  published API/usage pricing. Quotas are stated as "credits" and "message generations"
+  and the page is internally inconsistent: the plan cards and the
+  "Features at a Glance" comparison table give different numbers for the same tier.
+  Both are recorded verbatim below rather than reconciled, because a buyer reading the
+  page sees the same contradiction.
+plans:
+- name: AI Sidekick
+  price: 49
+  price_alt: 99
+  price_display: $49/$99 per month
+  currency: USD
+  period: month
+  included_quota: 300 / 1,000 credits
+  included_quota_alt: 300 / 1,000 message generations per month
+  cta: Book a Demo
+  features:
+  - AI assistant
+  - Chrome Extension
+  - AI-powered prospect research
+  - Hyper-personalized AI emails
+  - LinkedIn personalization across invites and In-Mails
+  - AI cold calling ice-breakers
+  - HubSpot, Apollo, Outreach & Salesloft integration
+  - Basic AI assistance
+- name: Scaled Research & Messaging
+  price: 399
+  price_display: $399 per month
+  currency: USD
+  period: month
+  included_quota: 20 credits / month
+  included_quota_alt: 2,000 message generations per month
+  quota_discrepancy: >-
+    The plan card states "20 credits / month" while the comparison table states
+    "2,000 message generations per month" for the same tier. Recorded as published.
+  cta: Book a Demo
+  features:
+  - All AI Sidekick features
+  - Custom prompting to scale thousands of messages
+  - Workflow automation for scaling outreach
+- name: Fully Autonomous Prospecting 24/7
+  price: 1995
+  price_display: $1,995 per month
+  currency: USD
+  period: month
+  included_quota: 400 / 1,200 credits per month
+  included_quota_alt: 2,000 fully autonomous leads per month
+  cta: Book a Demo
+  features:
+  - Everything in the lower tiers
+  - Custom prompts
+  - Onboarding
+  - Multi LLM support
+  - Access to OneShot.ai Slack Community
+  - AI messaging optimized for the highest response rates
+  - Intelligent delivery system for high deliverability
+  - AI-driven sequencing
+overage: null
+overage_note: No overage or credit top-up pricing is published.
+api_pricing: null
+api_pricing_note: >-
+  OneShot publishes no API, so there is no per-call, per-token or developer pricing to record.

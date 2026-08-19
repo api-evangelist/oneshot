@@ -1,0 +1,45 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Probed https://www.oneshot.ai/ and every conventional operational-transparency path;
+  enumerated all 180 URLs in https://www.oneshot.ai/sitemap.xml.
+note: >-
+  This artifact records an ABSENCE, and exists to explain why OneShot's
+  operational_transparency facet is zero rather than leaving it unexplained. OneShot
+  publishes no versioning policy, no deprecation policy, no SLA, no status page and no
+  changelog. No StatusPage or Deprecation pointer is emitted in apis.yml, because emitting
+  one would assert a surface OneShot does not serve.
+versioning: null
+deprecation: null
+sunset_header: unknown
+sla: null
+status_page: null
+changelog: null
+deprecated_operations: []
+evidence:
+- url: https://status.oneshot.ai/
+  status: 0
+  note: DNS does not resolve
+- url: https://www.oneshot.ai/status
+  status: 404
+- url: https://www.oneshot.ai/changelog
+  status: 404
+- url: https://www.oneshot.ai/release-notes
+  status: 404
+- url: https://www.oneshot.ai/updates
+  status: 404
+- url: https://www.oneshot.ai/whats-new
+  status: 404
+- url: https://www.oneshot.ai/sitemap.xml
+  status: 200
+  note: >-
+    180 URLs, all marketing, blog, case-study, podcast and legal pages. No status,
+    changelog, release-notes, versioning or deprecation page among them.
+product_lifecycle_signals:
+- signal: chrome-extension-release
+  value: '5.0.0'
+  date: '2025-08-29'
+  source: https://chromewebstore.google.com/detail/oneshot-hyper-personalize/gjbkaaflekcpeakkcoolahefhdmapgcp
+  note: >-
+    The only dated, versioned first-party release OneShot publishes anywhere. Recorded here
+    as the single available currency signal for the product.

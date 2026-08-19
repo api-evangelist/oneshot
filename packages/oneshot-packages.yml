@@ -1,0 +1,73 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Chrome Web Store; registry.npmjs.org; pypi.org; api.github.com. OneShot's own site
+  (https://www.oneshot.ai/ai-integrations, /pricing) names the Chrome Extension as the
+  distributed client.
+note: >-
+  OneShot ships NO client libraries or SDKs. Its only first-party distributed package is an
+  end-user Chrome extension, which is a product surface rather than a developer client — so
+  no `SDKs` pointer is emitted in apis.yml and sdk_count remains 0. npm `oneshot` and PyPI
+  `oneshot` both exist but belong to unrelated third parties (an LLM-prompt utility by
+  adamavenir, and a SLAC accelerator emittance-measurement package by Joel Frederico
+  respectively) and are explicitly NOT recorded as OneShot packages.
+packages:
+- language: javascript
+  registry: chrome-web-store
+  name: OneShot - Hyper Personalizer
+  id: gjbkaaflekcpeakkcoolahefhdmapgcp
+  url: https://chromewebstore.google.com/detail/oneshot-hyper-personalize/gjbkaaflekcpeakkcoolahefhdmapgcp
+  publisher: ONESHOT.AI LIMITED
+  official: true
+  kind: browser-extension
+  version: 5.0.0
+  published: '2025-08-29'
+  size: 156K
+  users: 294
+  rating: 5.0
+  rating_count: 7
+  category: Workflow & Planning
+  install: Add to Chrome from the Chrome Web Store listing
+  description: >-
+    Chrome extension for Outreach and Salesloft users that generates AI personalized
+    emails, LinkedIn messages and cold-calling scripts, and performs prospect research.
+  currency_note: >-
+    Version and publish date read directly from the Chrome Web Store listing "Details"
+    panel. The Chrome Web Store has no unauthenticated metadata endpoint, so these are
+    scraped from the listing rather than a registry API.
+registries_checked:
+- registry: npm
+  queries: [oneshot, oneshot-ai, '@oneshot/sdk', oneshotai]
+  first_party_found: false
+  note: '`oneshot` (200) is third-party: "One-shot LLM prompts", maintainer adamavenir.'
+- registry: pypi
+  queries: [oneshot, oneshot-ai, oneshotai]
+  first_party_found: false
+  note: '`oneshot` (200) is third-party: SLAC emittance measurement package, Joel Frederico.'
+- registry: github
+  queries: [Oneshot-AI]
+  first_party_found: false
+  note: >-
+    A GitHub organization github.com/Oneshot-AI exists (created 2023-03-01) with 2 public
+    repos — a fork of the PostHog HubSpot plugin and a `react-challenge` hiring exercise.
+    Neither is a OneShot client library, no public members are listed, and OneShot's own
+    website links to no GitHub organization anywhere, so ownership could not be proven from
+    the provider's own surface. No GitHubOrganization pointer is emitted.
+- registry: postman
+  queries: [oneshot]
+  first_party_found: false
+  note: >-
+    A public Postman workspace named "oneshot" exists but is published by an unrelated team
+    ("Newsfeed", publisherId 6619120). Not first-party; no Postman pointer emitted.
+- registry: maven-central
+  first_party_found: false
+- registry: nuget
+  first_party_found: false
+- registry: rubygems
+  first_party_found: false
+- registry: crates.io
+  first_party_found: false
+- registry: packagist
+  first_party_found: false
+- registry: pkg.go.dev
+  first_party_found: false

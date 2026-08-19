@@ -1,0 +1,72 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.oneshot.ai/handlingdata
+scope: internal-platform
+pointer_emitted: false
+note: >-
+  READ THIS BEFORE WIRING A POINTER. This file documents the auth model of OneShot's OWN
+  application — the browser UI talking to its own backend — as described in OneShot's
+  published "Guide to Handling of Customer Data". It is NOT a developer-facing API
+  authentication reference, because OneShot publishes no developer API: there is no
+  reference page, no key issuance flow, and no reachable API host. Therefore NO
+  `Authentication` pointer is emitted in apis.yml. Emitting one would earn the
+  authentication_documented ergonomics check for documentation that no integrator can act
+  on. Captured anyway because it is real, provider-published, and it is the only technical
+  description of OneShot's auth posture that exists.
+summary:
+  types: [http, oauth2]
+  http_schemes: [bearer]
+  bearer_format: JWT
+  oauth2_role: client
+  api_key_in: []
+  oauth2_flows: [authorizationCode]
+schemes:
+- name: platformJwt
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  role: server
+  ttl_seconds: 3600
+  issued_by: OneShot, after Salesforce login
+  audience: OneShot UI -> OneShot backend
+  evidence: >-
+    "Once the user logs-in to Oneshot through Salesforce login, Oneshot issues a JWT token
+    which expires in 60 minutes ... This is going to be used as an authorization token which
+    will authorize the user to make API calls against the Oneshot system from Oneshot User
+    interface (UI)."
+  source: https://www.oneshot.ai/handlingdata
+- name: salesforceOAuth
+  type: oauth2
+  role: client
+  flow: authorizationCode
+  provider: Salesforce
+  evidence: >-
+    "A user is created in the Oneshot system with the users email address, username and
+    OAuth access tokens. This allows Oneshot to make secure API calls against the users CRM
+    account. OneShot adheres to industry standard security practices defined by Salesforce's
+    official OAuth process."
+  provider_docs: https://help.salesforce.com/articleView?id=remoteaccess_oauth_flows.htm&type=5
+  source: https://www.oneshot.ai/handlingdata
+- name: outreachEmailOAuth
+  type: oauth2
+  role: client
+  flow: authorizationCode
+  provider: Outreach / Gmail / Outlook
+  evidence: >-
+    "A user connects their Outreach's account or Email account(Gmail or Outlook) with
+    Oneshot. This is secured by industry standard OAuth process and Oneshot stores the
+    access tokens to be able to make API calls to Outreach and/or email on the user's behalf."
+  source: https://www.oneshot.ai/handlingdata
+token_handling:
+  downstream_tokens_exposed_to_client: false
+  evidence: 'None of those access tokens are exposed to the clients.'
+  storage: MongoDB Atlas (OneShot cloud), access limited to approved designated employees
+  transport: SSL/HTTPS for all network traffic
+backend_host:
+  host: api.oneshot.ai
+  resolves: false
+  note: >-
+    The app.oneshot.ai JavaScript bundle references https://api.oneshot.ai as the platform
+    backend, but the host has no public DNS record (NOERROR/ANSWER:0 from both 8.8.8.8 and
+    1.1.1.1). Recorded as an observation about reachability; NOT written to apis.yml as a
+    baseURL, because a host that does not resolve is not a base URL.

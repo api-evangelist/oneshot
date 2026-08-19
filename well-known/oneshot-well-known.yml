@@ -1,0 +1,109 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTP probes of every OneShot host found in apis.yml
+note: >-
+  Every /.well-known/ path probed on every OneShot host either 404s (www.oneshot.ai),
+  301s to www (oneshot.ai apex), or returns a single-page-application catch-all shell
+  (app.oneshot.ai and security.oneshot.ai answer HTTP 200 with the same HTML document
+  for EVERY path, including paths that cannot exist). No well-known document is served.
+  Recorded as an absence: no WellKnown or SecurityTxt pointer is emitted in apis.yml.
+hosts:
+- host: www.oneshot.ai
+  note: marketing site (Webflow); honest 404s
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: served, but contains only a Sitemap directive
+  - path: /sitemap.xml
+    status: 200
+    note: 180 URLs, none of them developer/API pages
+- host: oneshot.ai
+  note: apex redirects to www.oneshot.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/agent-card.json
+    status: 301
+  - path: /.well-known/agent.json
+    status: 301
+  - path: /llms.txt
+    status: 301
+- host: app.oneshot.ai
+  note: >-
+    SPA catch-all. Returns HTTP 200 with an identical <!doctype html> Vite shell for
+    every path probed, including /openapi.json, /llms.txt, /.well-known/agent-card.json
+    and /.well-known/security.txt. Verified by requesting a nonsense path and receiving
+    the same body. All 200s below are SOFT and count as misses.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_200: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_200: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_200: true
+  - path: /.well-known/agent-card.json
+    status: 200
+    soft_200: true
+  - path: /.well-known/agent.json
+    status: 200
+    soft_200: true
+  - path: /llms.txt
+    status: 200
+    soft_200: true
+  - path: /openapi.json
+    status: 200
+    soft_200: true
+  - path: /swagger.json
+    status: 200
+    soft_200: true
+  - path: /api-docs
+    status: 200
+    soft_200: true
+  - path: /v1/openapi.json
+    status: 200
+    soft_200: true
+- host: security.oneshot.ai
+  note: >-
+    Vanta-hosted trust center (CNAME 66589c2f3a3cc20954b0df68.cname.vantatrust.com).
+    Also an SPA catch-all — every path returns the same Vanta shell.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_200: true
+  - path: /.well-known/agent-card.json
+    status: 200
+    soft_200: true
+non_resolving_hosts:
+- host: api.oneshot.ai
+  note: >-
+    Referenced by the app.oneshot.ai JavaScript bundle as the platform backend, but has
+    no public DNS record. NOERROR/ANSWER:0 from 8.8.8.8 and 1.1.1.1; curl exits 6
+    (could not resolve host).
+- host: docs.oneshot.ai
+- host: developers.oneshot.ai
+- host: developer.oneshot.ai
+- host: status.oneshot.ai
+- host: trust.oneshot.ai
+- host: help.oneshot.ai
+- host: mcp.oneshot.ai

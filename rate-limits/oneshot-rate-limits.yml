@@ -1,0 +1,25 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.oneshot.ai/pricing
+limit_count: 0
+note: >-
+  OneShot publishes no rate limits. There is no developer portal, API reference, or docs
+  host on which limits could be documented (docs.oneshot.ai, developers.oneshot.ai and
+  api.oneshot.ai do not resolve; www.oneshot.ai/api, /docs and /developers all 404), and
+  no response headers can be observed because there is no publicly reachable API endpoint.
+  The only quota-shaped values OneShot publishes are commercial plan allowances — monthly
+  "credits" and "message generations" — which are captured in plans/oneshot-plans-pricing.yml
+  and are not runtime rate limits. An honest zero.
+limits: []
+headers: []
+exhaustion_status: null
+evidence:
+- url: https://www.oneshot.ai/api
+  status: 404
+- url: https://www.oneshot.ai/docs
+  status: 404
+- url: https://www.oneshot.ai/developers
+  status: 404
+- url: https://api.oneshot.ai/
+  status: 0
+  note: DNS does not resolve (NOERROR, ANSWER 0)

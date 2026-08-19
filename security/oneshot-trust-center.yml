@@ -1,0 +1,34 @@
+generated: '2026-08-13'
+method: searched
+probe: true
+source: https://security.oneshot.ai
+url: https://security.oneshot.ai
+platform: Vanta
+title: OneShot.ai Trust Center
+certifications: []
+note: >-
+  OneShot operates a branded Vanta Trust Center at https://security.oneshot.ai. The host
+  is verified first-party by DNS: it CNAMEs to 66589c2f3a3cc20954b0df68.cname.vantatrust.com,
+  Vanta's trust-center delegation target, and the served document carries
+  <title>OneShot.ai Trust Center</title> with <link rel="canonical" href="https://security.oneshot.ai">.
+  This is a real trust center, not the SPA false positive — the host exists only for this purpose.
+  NO CERTIFICATIONS ARE RECORDED because none are publicly readable: the trust-center content is
+  rendered client-side from a signed-operation GraphQL API, so the served HTML (4,530 bytes)
+  contains no framework or certification names, and Vanta trust centers gate document access
+  behind an access request. certifications: [] means "checked, nothing publicly readable",
+  not "none held". A future pass should re-check if OneShot enables the public overview.
+evidence:
+- source: https://security.oneshot.ai
+  http_status: 200
+  content_type: text/html
+  signal: title "OneShot.ai Trust Center"; canonical https://security.oneshot.ai
+- source: dns
+  record: security.oneshot.ai CNAME 66589c2f3a3cc20954b0df68.cname.vantatrust.com
+  signal: dedicated Vanta trust-center delegation
+related:
+- type: gdpr-commitment
+  url: https://www.oneshot.ai/handlingdata
+- type: data-processing-terms
+  url: https://www.oneshot.ai/data-processing
+- type: privacy-policy
+  url: https://www.oneshot.ai/privacy-policy
