@@ -48,7 +48,7 @@ accessModel:
     including the $49 entry tier — carries a "Book a Demo" call to action. There is no
     self-serve checkout and no free tier, so onboarding is sales-gated approval.
 image: https://cdn.prod.website-files.com/64c2dbb9c4026648656ec081/68643037866f61678f86bb47_oneshot_meta_preview_atlas.png
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-08-13'
 tags:
