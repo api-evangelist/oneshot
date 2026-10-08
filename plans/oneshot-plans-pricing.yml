@@ -68,3 +68,31 @@ overage_note: No overage or credit top-up pricing is published.
 api_pricing: null
 api_pricing_note: >-
   OneShot publishes no API, so there is no per-call, per-token or developer pricing to record.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units: []
+  plans:
+  - name: AI Sidekick
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Scaled Research & Messaging
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Fully Autonomous Prospecting 24/7
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
